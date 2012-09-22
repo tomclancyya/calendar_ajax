@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+  <title>Timeframe</title>
+  
+  <link rel="stylesheet" href="stylesheets/gui.css" type="text/css" media="screen" title="timeframe" charset="utf-8"/>
+  <link rel="stylesheet" href="stylesheets/timeframe.css" type="text/css" media="screen" title="timeframe" charset="utf-8"/>
+  <!--[if lt IE 8]>
+    <style type="text/css" media="screen">
+      div.timeframe_calendar li a, div.timeframe_calendar table {
+        display: inline;
+      }
+    </style>
+  <![endif]-->
+  <!--[if lt IE 7]>
+    <link rel="stylesheet" href="stylesheets/ie6.css" type="text/css" media="screen" title="ie6" charset="utf-8"/>
+  <![endif]-->
+</head>
+<body>
+  <div id="page_container">
+    <h1><a href="http://github.com/stephencelis/timeframe">Timeframe</a><small>, by Stephen Celis</small></h1>
+    <p>
+      <em>Click-draggable. Range-makeable. A better calendar.</em>
+    </p>
+    <h3><a href="#example_information">Click here for the example.</a></h3>
+    <h2>
+      The code:
+    </h2>
+    <pre><code>
+      new Timeframe(element, options);
+    </code></pre>
+    <h3>
+      Options available:
+    </h3>
+    <dl>
+      <dt><code>months</code></dt>
+      <dd>The number of calendar months showing at once (default: <code>2</code>).</dd>
+      <dt><code>format</code></dt>
+      <dd>The <a href="http://developer.apple.com/documentation/Darwin/Reference/ManPages/man3/strftime.3.html">strftime</a> format for the dates in the input fields (default: <code>%b %d, %Y</code>). (With <a href="http://datejs.com/">Datejs</a>, it takes Datejs formatting.)</dd>
+      <dt><code>weekOffset</code></dt>
+      <dd>The weekday offset (use <code>1</code> to start the week on Monday).</dd>
+      <dt><code>startField</code>, <code>endField</code></dt>
+      <dd>Declare the range start and end <code>input</code> tags (by default, these are generated with the Timeframe).</dd>
+      <dt><code>previousButton</code>, <code>todayButton</code>, <code>nextButton</code>, <code>resetButton</code></dt>
+      <dd>Declare the navigational buttons (by default, these are also generated with the Timeframe).</dd>
+      <dt><code>earliest</code>, <code>latest</code></dt>
+      <dd>The earliest and latest selectable dates (accepts either a <code>Date</code> object or a <code>String</code> that can be parsed with <code>Date.parse()</code>).</dd>
+      <dt><code>maxRange</code></dt>
+      <dd>Limit the maximum possible range length (set to <code>1</code> to turn Timeframe into a regular old date picker).</dd>
+    </dl>
+    <h3>Localization:</h3>
+    <p>
+      Drop in a localized version of <a href="http://datejs.com">Datejs</a>, and it should just work. An added bonus is that the text fields will live-parse more nicely! Just try &ldquo;next tues.&rdquo;
+    </p>
+    <h3>
+      Notes:
+    </h3>
+    <ul>
+      <li>I&rsquo;m just sick of multiple date pickers on the same page.</li>
+    </ul>
+    <h2 id="example_information">
+      An example:
+    </h2>
+    <ul>
+      <li>A little bit slow in IE. Optimizations forthcoming.</li>
+      <li>Try <a href="http://apple.com/safari">Safari</a> for the best experience.</li>
+    </ul>
+    <div id="example">
+      <h4>Please select a date range below:</h4>
+      <div id="calendars"></div>
+      <div id="calendar_form">
+        <div id="labels">
+          <label for="start">Embarkation</label> and <label for="end">return</label> (<a href="#" onclick="return false;" id="reset">reset</a>):
+        </div>
+        <div id="fields">
+          <span>
+            <input type="text" name="start" value="" id="start"/>
+            &ndash;
+            <input type="text" name="end" value="" id="end"/>
+          </span>
+        </div>
+      </div>
+    </div>
+    <p>
+      Generated from this code (see the source for more detail):
+    </p>
+    <pre><code>
+      &lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;
+        //&lt;![CDATA[
+          new Timeframe(&#x27;calendars&#x27;, {
+            startField: &#x27;start&#x27;,
+            endField: &#x27;end&#x27;,
+            earliest: new Date(),
+            resetButton: &#x27;reset&#x27; });
+        //]]&gt;
+      &lt;/script&gt;
+    </code></pre>
+    <h2>Contribution:</h2>
+    <p>
+       Timeframe is open source and available for forking, pushing, and pulling at <a href="http://github.com">Github</a>:
+    </p>
+    <p>
+      <a href="http://github.com/stephencelis/timeframe">http://github.com/stephencelis/timeframe</a>
+    </p>
+    <p>
+      If you find Timeframe useful, please feel free to leave a donation:
+      <a href='http://pledgie.org/campaigns/799'><img alt='Click here to lend your support to: timeframe and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/799.png?skin_name=chrome' border='0'/></a> 
+    </p>
+    <h3>Thanks:</h3>
+    <ul>
+      <li><a href="http://alternateidea.com">Justin Palmer (&ldquo;Caged&rdquo;)</a></li>
+      <li><a href="http://codetocustomer.com/blog">Nik Wakelin (&ldquo;codetocustomer&rdquo;)</a></li>
+      <li><a href="http://zencocoon.com">Sébastien Grosjean (&ldquo;ZenCocoon&rdquo;)</a></li>
+    </ul>
+    <h2>Contact:</h2>
+    <p>
+      Contact me with questions/comments at
+      <script type="text/javascript">
+      //<![CDATA[
+      document.write(
+"<n uers=\"znvygb:fgrcura\100fgrcurapryvf\056pbz\">fgrcura\100fgrcurapryvf\056pbz<\057n>".replace(/[a-zA-Z]/g, function(c){return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);}));
+        //]]>
+      </script>.
+    </p>
+    <p>
+      Learn more about me at <a href="http://stephencelis.com">stephencelis.com</a>.
+    </p>
+    <p>
+      Copyright &copy; 2008 Stephen Celis. Provided under the MIT License.
+    </p>
+  </div>
+  <script type="text/javascript" charset="utf-8" src="scripts/prototype.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../timeframe.js"></script>
+  <script type="text/javascript" charset="utf-8">
+    //<![CDATA[
+      new Timeframe('calendars', { months: 3,
+        startField: 'start',
+        endField: 'end',
+        earliest: new Date(),
+        resetButton: 'reset' });
+    //]]>
+  </script>
+</body>
+</html>

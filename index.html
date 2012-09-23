@@ -13,7 +13,9 @@ header("Content-Type: text/html; charset=UTF-8");
         <style type="text/css">
             #button
             {
-               border: 0px;
+				margin: 10px;
+				padding-bottom:20px;
+               border:  4px dotted black;
                background-color: #11cff7;
                height: 22px;
             }
@@ -24,18 +26,24 @@ header("Content-Type: text/html; charset=UTF-8");
             }
         </style>
   <link rel="stylesheet" href="stylesheets/gui.css" type="text/css" media="screen" title="timeframe" charset="utf-8"/>
+   <link rel="stylesheet" href="style.css" type="text/css" charset="utf-8"/>
   <link rel="stylesheet" href="stylesheets/timeframe.css" type="text/css" media="screen" title="timeframe" charset="utf-8"/>
   <script type="text/javascript">
   
   jQuery.noConflict();
   jQuery(document).ready(function() { 
- jQuery("#main_table").tablesorter();
+  jQuery("#main_table").tablesorter();
          
     jQuery("#calendars_container").click(
 		function(){ 
 			json(); 
 		});
 	});
+	
+	function genArray()
+	{
+		jQuery.getJSON('json.php', { needGenArray: [true]}, function(obj){	});
+	}
   
 
     function json()
@@ -52,16 +60,17 @@ header("Content-Type: text/html; charset=UTF-8");
        }); 
 	   
 	   if ((start.length < MIN_AMOUNT_OF_DATE_STRING) || (end.length < MIN_AMOUNT_OF_DATE_STRING)) 
+		{ console.log('can not send');
 		return;
+		}
 	   
-
        jQuery.getJSON('json.php', { b: [start],e : [end] }, function(obj){
 		
 		result = '';
 		/*jQuery.each(obj, function(key, val) {
 			result = result + ' ' + val;	  
 		});*/
-		
+		jQuery('#main_table').find("tr:gt(0)").remove();
 		jQuery(obj).each(function(key, element) {
 			//result = result + ' ' + val;	  
 			jQuery('#main_table').append('<tr><td> '+element[0]+' </td> <td> '+element[1]+' </td> <td> '+element[2]+' </td></tr>')
@@ -88,27 +97,28 @@ header("Content-Type: text/html; charset=UTF-8");
     <div id="example" >
       <h4>Please select a date range below:</h4>
       <div id="calendars"></div>
-      <div id="calendar_form">
-        <div id="labels">
+      <div id="calendar_form" style="visibility:hidden; display: inline;">
+        <div id="labels" style="visibility:hidden; display: inherit;">
           <label for="start">Embarkation</label> and <label for="end">return</label> (<a href="#" onclick="return false;" id="reset">reset</a>):
         </div>
-        <div id="fields" style="visibility:;" >
+        <div id="fields" style="visibility:hidden; display: inherit;">
           <span>
-            <input type="text" name="start" value="" id="start"/>ddd
+            <input type="text" name="start" value="" id="start"/>
             &ndash;
             <input type="text" name="end" value="" id="end"/>
           </span>
         </div>
       </div>
+	   <input type="button" value="Сгенерировать массив заново" id="button" onclick="genArray()">
+ 
     </div>
 
     
    
   </div>
 
-  <input type="text" name="result" id="result" size="50"> <br/>
-  <div id="notice"></div> <br/>
-  <input type="button" value="Пуск" id="button" onclick="json()">
+  <!--<input type="text" name="result" id="result" size="50"> <br/>
+  <div id="notice"></div> <br/>-->
   
 	<table id="main_table" cellspacing="1" class="tablesorter">             
 		<thead>
@@ -131,8 +141,8 @@ header("Content-Type: text/html; charset=UTF-8");
         months: 3,
         startField: 'start',
         endField: 'end',
-       
-        resetButton: 'reset' });
+		resetButton: 'reset'
+        });
     //]]>
   </script>
 

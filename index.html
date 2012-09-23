@@ -5,11 +5,10 @@
 <head>
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>JSON</title>
-	<link rel="stylesheet" href="style.css" type="text/css" charset="utf-8"/>	
+	<link rel="stylesheet" href="stylesheets/style.css" type="text/css" charset="utf-8"/>	
 	<link rel="stylesheet" href="stylesheets/gui.css" type="text/css" media="screen" title="timeframe" charset="utf-8"/>
-	<link rel="stylesheet" href="stfyle.css" type="text/css" charset="utf-8"/>
 	<link rel="stylesheet" href="stylesheets/timeframe.css" type="text/css" media="screen" title="timeframe" charset="utf-8"/>
-	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="scripts/jquery.js"></script>
 	<script type="text/javascript" src="scripts/jquery.tablesorter.js"></script>	
 	<script type="text/javascript" src="scripts/json.script.js"></script>	
 </head>
@@ -28,6 +27,7 @@
 	 
 	<div id="loading">
 	<div class="modal"></div> 	
+	<div class="modal_error">Во время загрузки произошла ошибка. <a href="#" onClick="json(); return false">Повторить запрос?</a></div> 
 	  <table id="main_table" cellspacing="1" class="tablesorter">             
 		<thead>
 			<tr>				
@@ -44,7 +44,7 @@
   </div>
   
   <script type="text/javascript" charset="utf-8" src="scripts/prototype.js"></script>
-  <script type="text/javascript" charset="utf-8" src="timeframe.js"></script>
+  <script type="text/javascript" charset="utf-8" src="scripts/timeframe.js"></script>
   <script type="text/javascript" charset="utf-8" src="scripts/main.script.js"></script>    
 </body>
 </html>

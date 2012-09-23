@@ -1,6 +1,5 @@
 <?php
 
-
 function genArray($startDate,$endDate,$size){ // as result it looks like $arrayHandMande
 	$genArray = array();
 	$unixTimeStart = strtotime($startDate);
@@ -8,12 +7,10 @@ function genArray($startDate,$endDate,$size){ // as result it looks like $arrayH
 	
 	for ($i=0; $i < $size; $i++){
 		$unixTimeRand = rand($unixTimeStart, $unixTimeEnd);
-		$event = $i." event";
+		$event = str_pad($i, 4, "0", STR_PAD_LEFT)." event";
 		$genArray[$unixTimeRand] = $event;
-	}
-	sleep(1);
-	return $genArray;
-	
+	}	
+	return $genArray;	
 }
 
 //handmade array
@@ -53,7 +50,7 @@ function sendJSON($array){
 		 }			
 	}
 	unset($value); 
-	sleep(4);
+	sleep(1);
 	  
 	echo json_encode(($newArray));
 }

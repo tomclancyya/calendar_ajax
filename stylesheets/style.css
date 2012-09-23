@@ -40,7 +40,7 @@
 	padding: 4px;
 }
 .tablesorter thead tr .header {
-	background-image: url(bg.gif);
+	background-image: url(./../images/bg.gif);
 	background-repeat: no-repeat;
 	background-position: center right;
 	cursor: pointer;
@@ -55,10 +55,10 @@
 	background-color:#F0F0F6;
 }
 .tablesorter thead tr .headerSortUp {
-	background-image: url(asc.gif);
+	background-image: url(./../images/asc.gif);
 }
 .tablesorter thead tr .headerSortDown {
-	background-image: url(desc.gif);
+	background-image: url(./../images/desc.gif);
 }
 .tablesorter thead tr .headerSortDown, .tablesorter thead tr .headerSortUp {
 background-color: #8dbdd8;
@@ -90,12 +90,11 @@ display: none;
 
 /* loading */
 
-/* Start by setting display:none to make this hidden.
-   Then we position it in relation to the viewport window
-   with position:fixed. Width, height, top and left speak
-   speak for themselves. Background we set to 80% white with
-   our animation centered, and no-repeating */
-.modal {
+
+
+
+
+.modal , .modal_error {
     display:    none;
     position:   absolute;
     z-index:    1000;
@@ -103,11 +102,28 @@ display: none;
     left:       0;
     height:     100%;
     width:      100%;
-    background: rgba( 255, 255, 255, .8 ) 
-                url('images/pIkfp.gif') 
+	width:501px; height:300px;
+   
+}
+
+.modal  {
+
+ background: rgba( 255, 255, 255, .8 ) 
+                url('./../images/pIkfp.gif') 
                 50% 50% 
                 no-repeat;
-				width:501px; height:300px;
+				
+
+}
+
+.modal_error {
+padding-top:100px;
+ text-align: center;
+background: rgba( 255, 255, 255, .8 ) 
+               
+                50% 50% 
+                no-repeat;
+				
 }
 
 /* When the body has the loading class, we turn
@@ -115,7 +131,7 @@ display: none;
    
 #loading {position:relative;}   
    
-#loading.loading {
+#loading.loading, #loading.error  {
     overflow: hidden;  	
 }
 
@@ -123,4 +139,13 @@ display: none;
    modal element will be visible */
 #loading.loading .modal {
     display: block;
-}?
+}
+
+
+
+
+#loading.error .modal_error {
+    display: block;
+}
+
+

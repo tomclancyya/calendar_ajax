@@ -28,7 +28,7 @@
 .tablesorter {
 	font-family:arial;
 	background-color: #CDCDCD;
-	margin:10px 0pt 15px;
+	margin:0px 0pt 0px;
 	font-size: 8pt;
 	/*width: 100%;
 	*/text-align: left;
@@ -86,3 +86,41 @@ background-color: #8dbdd8;
 display: none; 
   visibility:hidden;
 }
+
+
+/* loading */
+
+/* Start by setting display:none to make this hidden.
+   Then we position it in relation to the viewport window
+   with position:fixed. Width, height, top and left speak
+   speak for themselves. Background we set to 80% white with
+   our animation centered, and no-repeating */
+.modal {
+    display:    none;
+    position:   absolute;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('images/pIkfp.gif') 
+                50% 50% 
+                no-repeat;
+				width:501px; height:300px;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+   
+#loading {position:relative;}   
+   
+#loading.loading {
+    overflow: hidden;  	
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+#loading.loading .modal {
+    display: block;
+}?

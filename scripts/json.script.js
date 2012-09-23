@@ -1,4 +1,8 @@
- 
+
+
+
+
+
   jQuery.noConflict();
   
   jQuery(document).ready(function() { 
@@ -30,8 +34,10 @@
              currentEnd=this.value
        }); 
 	   
-	   if (((lastStart==currentStart) && (lastEnd==currentEnd)))
+	   if (((lastStart==currentStart) && (lastEnd==currentEnd))){
 			 jQuery("#calendars_container").bind('click', function (){json();});
+			 jQuery('#loading').removeClass("loading"); 
+			 }
 	    else 		
 			json();		
 		
@@ -43,6 +49,8 @@
 		var MIN_AMOUNT_OF_DATE_STRING = 12;
         var start, end; 
 
+		jQuery('#loading').addClass("loading"); 
+		
        jQuery('#start').each(function(){ // читаем значение начальной даты
             start=this.value
         });

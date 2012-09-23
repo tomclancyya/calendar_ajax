@@ -6,35 +6,28 @@
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>JSON</title>
 	<link rel="stylesheet" href="style.css" type="text/css" charset="utf-8"/>	
-	
 	<link rel="stylesheet" href="stylesheets/gui.css" type="text/css" media="screen" title="timeframe" charset="utf-8"/>
 	<link rel="stylesheet" href="stfyle.css" type="text/css" charset="utf-8"/>
 	<link rel="stylesheet" href="stylesheets/timeframe.css" type="text/css" media="screen" title="timeframe" charset="utf-8"/>
 	<script type="text/javascript" src="jquery.js"></script>
 	<script type="text/javascript" src="scripts/jquery.tablesorter.js"></script>	
 	<script type="text/javascript" src="scripts/json.script.js"></script>	
-	
-
 </head>
-<body>
-  
+<body> 
    
     <div id="example" >
       <h4>Выберите диапазон дат:</h4>
       <div id="calendars"></div>
       <div id="calendar_form" style="visibility:hidden; display: inline;">
-        <div id="labels" style="visibility:hidden; display: inherit;">
-          <label for="start">Embarkation</label> and <label for="end">return</label> (<a href="#" onclick="return false;" id="reset">reset</a>):
-        </div>
-        <div id="fields" style="visibility:hidden; display: inherit;">
-          <span>
+        <div id="reset" style="visibility:hidden; display: inherit;">            
             <input type="text" name="start" value="" id="start"/>
             &ndash;
-            <input type="text" name="end" value="" id="end"/>
-          </span>
+            <input type="text" name="end" value="" id="end"/>       
         </div>
       </div>
-	  
+	 
+	<div id="loading">
+	<div class="modal"></div> 	
 	  <table id="main_table" cellspacing="1" class="tablesorter">             
 		<thead>
 			<tr>				
@@ -44,11 +37,12 @@
 		</thead> 
 		<tbody> 
 		</tbody> 
-	</table>	  
-	<input type="button" value="Сгенерировать массив заново" id="button" onclick="genArray()">
-	<img src="images/loading.gsif"> 
+	</table>	
+   </div>		
+	<input type="button" value="Сгенерировать массив заново" id="button" onclick="genArray()">	
     </div>  
-  </div>	
+  </div>
+  
   <script type="text/javascript" charset="utf-8" src="scripts/prototype.js"></script>
   <script type="text/javascript" charset="utf-8" src="timeframe.js"></script>
   <script type="text/javascript" charset="utf-8" src="scripts/main.script.js"></script>    
